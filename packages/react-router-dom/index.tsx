@@ -159,8 +159,8 @@ export interface DataBrowserRouterProps {
 export function DataBrowserRouter({
   basename,
   children,
-  hydrationData,
   fallbackElement,
+  hydrationData,
   window,
 }: DataBrowserRouterProps): React.ReactElement {
   let element = UNSAFE_useRenderDataRouter({
@@ -171,6 +171,7 @@ export function DataBrowserRouter({
     createRouter: (routes: RouteObject[], onChange: (s: RouterState) => void) =>
       createBrowserRouter({
         onChange,
+        basename,
         routes,
         hydrationData,
         window,
@@ -202,6 +203,7 @@ export function DataHashRouter({
     createRouter: (routes: RouteObject[], onChange: (s: RouterState) => void) =>
       createHashRouter({
         onChange,
+        basename,
         routes,
         hydrationData,
         window,
